@@ -24,6 +24,11 @@ def logging_test(logger):
     # error
     # critical or fatal
     level = logging.WARN + 5  # custom log level
+    logger.debug("A massage for developer.")
+    logger.info("Maassage.")
+    logger.warning("Pay Attentions.")
+    logger.error("An error occurred.")
+    logger.critical("A critical error.")
     print("You forgot to write logging_test")
 
 
