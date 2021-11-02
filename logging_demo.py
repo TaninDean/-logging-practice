@@ -13,20 +13,10 @@ def logging_test(logger):
     """Log messages using each of the standard logging levels 
        plus 1 custom log level.
     """ 
-    # TODO write a log message that uses each of these log levels,
-    #  and your message indicates the sort of information you would
-    #  log at that level:
-    #
-    # debug
-    # info
-    # warning
-    # level = logging.WARN + 5 (custom log level between WARN and ERROR)
-    # error
-    # critical or fatal
-    level = logging.WARN + 5  # custom log level
     logger.debug("A massage for developer.")
     logger.info("Maassage.")
     logger.warning("Pay Attentions.")
+    level = logging.WARN + 5  # custom log level
     logger.error("An error occurred.")
     logger.critical("A critical error.")
     print("You forgot to write logging_test")
@@ -56,15 +46,11 @@ def simple_config():
 
 def my_config():
     """Write your own logging configuration."""
-    # TODO write your own logging configuration
-    #      specify a log file, threshold level, format, and append mode
-    pass
+    FORMAT = '%(asctime)s %(filename)s %(funcName)s %(message)s'
+    logging.basicConfig(format=FORMAT, filename='log_record.log')
 
 
 if __name__ == "__main__":
-    #
-    # TODO Configure logging using one of these choices:
-
     # 1. Call basicConfig with the default settings
     logging.basicConfig()
 
@@ -82,7 +68,7 @@ if __name__ == "__main__":
     print("Logging to ", str(logger))
     logging_test(logger)
 
-
-    # TODO create a named logger, set a a custom log threshold,
-    #       and call logging_test again with your named logger.
+    log = logging.getLogger('my_logger')
+    log.setLevel(logging.INFO)
+    logging_test(log)
 
